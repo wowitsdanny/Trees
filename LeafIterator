@@ -1,0 +1,24 @@
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public abstract class LeafIterator extends WordNode implements Iterator<WordNode> {
+
+    public LeafIterator(WordNode root) {
+
+        for (Iterator<WordNode> iterator = children.iterator(); iterator.hasNext(); ) {
+            WordNode child = iterator.next();
+        }
+    }
+
+    public boolean hasNext() {
+        return false;
+    }
+
+    public WordNode next() {
+        if(!hasNext()){
+            throw new NoSuchElementException();
+        }
+        return null;
+    }
+
+}
