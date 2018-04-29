@@ -5,20 +5,21 @@ public abstract class LeafIterator extends WordNode implements Iterator<WordNode
 
     public LeafIterator(WordNode root) {
 
-        for (Iterator<WordNode> iterator = children.iterator(); iterator.hasNext(); ) {
-            WordNode child = iterator.next();
-        }
-    }
+        Iterator<WordNode> it = new LeafIterator(root) {
+            
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
 
-    public boolean hasNext() {
-        return false;
+            @Override
+            public WordNode next() {
+                if(!hasNext()){
+                    throw new NoSuchElementException();
+                }
+                return null;
+            }
+        };
     }
-
-    public WordNode next() {
-        if(!hasNext()){
-            throw new NoSuchElementException();
-        }
-        return null;
-    }
-
 }
+
