@@ -1,0 +1,18 @@
+public class LeafIterator extends WordNode implements java.util.Iterator<WordNode> {
+
+    LeafIterator(WordNode root) {
+        Stack<WordNode> stack = new Stack<>();
+        stack.push(root);
+
+    }
+    
+    //needs new implementation
+    public boolean hasNext() {
+        return false;
+    }
+
+    //needs new implementation
+    public WordNode next() {
+        return null;
+    }
+}
